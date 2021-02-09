@@ -4,6 +4,7 @@ const path = require('path')
 const rules = [
     { 
         test: /\.js$/, 
+        // https://github.com/webpack/webpack/issues/11467
         resolve: {fullySpecified: false},
     },
 ];
