@@ -7,6 +7,13 @@ const rules = [
         // https://github.com/webpack/webpack/issues/11467
         resolve: {fullySpecified: false},
     },
+    { 
+        test: /\.scss$/, 
+        use: [
+            "raw-loader",
+            "sass-loader",
+        ],
+    },
 ];
 
 module.exports = {
