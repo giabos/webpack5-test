@@ -24,9 +24,9 @@
 
         const list = $$('custom-root');
         $('input[type=checkbox]').on('change',
-                evt =>  evt.target.checked ?
-                    list.forEach(a => a.setAttribute("loading", "true"))
-                    : list.forEach(a => a.removeAttribute("loading")) );
+                evt =>  
+                    list.forEach(a => a.classList.toggle("loading"))
+                     );
             
 
 
