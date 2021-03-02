@@ -1,11 +1,54 @@
 
-h1 {
-    color: red;
-}
 
-ul {
-    li:nth-child(even) {
-        color: red;
+        @keyframes pulse
+        {
+          0%{
+            background-color: rgba(165,165,165,.1);
+          }
+          25%{
+            background-color: rgba(165,165,165,.2);
+          }
+          50%{
+            background-color: rgba(165,165,165,.3);
+          }
+          75%{
+            background-color: rgba(165,165,165, .2);
+          }
+          100%{
+            background-color: rgba(165,165,165, .1);
+          }
+        }
+
+@mixin loading-background {
+    position: relative;
+    .loading {
+        &:before {
+            position: absolute;
+            content:' ';
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+        }
+        &:after {
+            z-index: 2;
+            content:' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            animation: pulse 2s infinite ease-in-out;
+            border-radius: 2px;
+        }
     }
 }
+
+
+:host {
+    @include loading-background;
+}
+
 

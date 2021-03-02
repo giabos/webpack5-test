@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<body>
+    <style>
+        custom-root {
+            display: block;
+            width: 200px;
+            margin-bottom: 5px;
+        }
+    </style>
+    
+    <script src="main.js"></script>
+    <custom-root> <input type="radio"> aaa</custom-root>
+    <custom-root> <input type="radio"> bbb</custom-root>
+
+    <input type="checkbox">
+
+    <script>
+        var $ = document.querySelector.bind(document), 
+            $$ = document.querySelectorAll.bind(document);
+        
+            Element.prototype.on = Element.prototype.addEventListener;
+            NodeList.prototype.forEach = Array.prototype.forEach;
+
+        const list = $$('custom-root');
+        $('input[type=checkbox]').on('change',
+                evt =>  evt.target.checked ?
+                    list.forEach(a => a.setAttribute("loading", "true"))
+                    : list.forEach(a => a.removeAttribute("loading")) );
+            
+
+
+    </script>
+
+
+</body>
+</html>
